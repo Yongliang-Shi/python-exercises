@@ -193,6 +193,34 @@ user_input = input("Enter an odd number between 1 and 50: ")
 type(user_input) # No matter what the user input, the datatype that INPUT returns is str.
 
 
+# In[122]:
+
+
+# Test .isdigit()
+
+# .isdigit() return flase if the string input is negative or a float
+
+print("5".isdigit())
+print("-5".isdigit())
+print("4.5".isdigit())
+
+# .isdecimal() returns false if the string input is negative or a float
+
+print("5".isdecimal())
+print("-5".isdecimal())
+print("4.5".isdecimal())
+
+# .isnumeric() also returns false if the string input is negative or a floast
+
+print("5".isnumeric())
+print("-5".isnumeric())
+print("4.5".isnumeric())
+
+# int() is a good tool to convert string to integer when the string input is "integer" but
+# it returns ValueError when the string input is "float"
+int("4")
+
+
 # In[40]:
 
 
@@ -253,26 +281,7 @@ for num in odd_number:
 
 # d. The INPUT function can be used to prompt for input and use that input in your python code. Prompt the user to enter a positive number and write a loop that counts from 0 to that number. (Hints: first make sure that the value the user entered is a valid number, also note that the INPUT function returns a string, so you'll need to convert this to a numeric type.
 
-# In[30]:
-
-
-"a".isdigit()
-
-
-# In[38]:
-
-
-"-5".isdigit()
-# What if I do need the input to be negative
-
-
-# In[42]:
-
-
-"4.5".isdigit()
-
-
-# In[37]:
+# In[1]:
 
 
 input_int = input("Please type in an positive integer: ")
@@ -357,35 +366,7 @@ else:
 
 # # Q4: Display a table of powers.
 
-# In[122]:
-
-
-# Step 1: Prompt the user to enter an integer and validate the input
-
-# .isdigit() return flase if the string input is negative or a float
-
-print("5".isdigit())
-print("-5".isdigit())
-print("4.5".isdigit())
-
-# .isdecimal() returns false if the string input is negative or a float
-
-print("5".isdecimal())
-print("-5".isdecimal())
-print("4.5".isdecimal())
-
-# .isnumeric() also returns false if the string input is negative or a floast
-
-print("5".isnumeric())
-print("-5".isnumeric())
-print("4.5".isnumeric())
-
-# int() is a good tool to convert string to integer when the string input is "integer" but
-# it returns ValueError when the string input is "float"
-int("4")
-
-
-# In[55]:
+# In[9]:
 
 
 # Use TRY EXCEPT for the string input validation
@@ -399,20 +380,43 @@ try:
 except ValueError: 
     print("Invalid entry.")
 
-# Add LOOP to continue prompting the user if they enter invalid input
-
 # Calculate the squares and cubes of the input and put them in a list
 
 filed_names = ["number", "squared", "cubed"]
 
 # print(data_list) # valid
 
-print("number squared cubed")
+print("number| squared| cubed")
 print("-"*20)
 
 for i in range(0,user_input):
-    print('{:<6}'.format(f"{(i+1)}"),'{:<7}'.format(f"{(i+1)**2}"),'{:<7}'.format(f"{(i+1)**3}"))
+    print('{:<6}|'.format(f"{(i+1)}"),'{:<7}|'.format(f"{(i+1)**2}"),'{:<7}'.format(f"{(i+1)**3}"))
     print()
+    
+# Add continuing prompting
+
+do_it_again = input("Do you want to continue? Please type Y/N")
+
+if do_it_again == "Y":
+    user_input = input("Pleaese enter a numerical grade: ")
+    user_input = int(user_input)
+
+
+# In[18]:
+
+
+# Use WHILE LOOP to combine them together
+
+user_input = "Y"
+
+while user_input == "Y": 
+    user_input = int(input("What number would you like to go up to?"))
+    print("number| squared| cubed")
+    print("-"*20)
+    for i in range(0,user_input):
+        print('{:<6}|'.format(f"{(i+1)}"),'{:<7}|'.format(f"{(i+1)**2}"),'{:<7}'.format(f"{(i+1)**3}"))
+        print()
+    user_input = (input("Do you want to continue? Please type Y/N"))
 
 
 # # Q5: Convert given number grades into letter grades
@@ -484,6 +488,29 @@ while do_it_again == "Y":
     do_it_again = input("Do you want to continue? Please type Y/N")
 
 
+# In[19]:
+
+
+# Simplify the coding:
+
+num_grade = "Y"
+
+while num_grade == "Y":
+    num_grade = input("Pleaese enter a numerical grade: ")
+    num_grade = int(num_grade)
+    if 88 <= num_grade <=100:
+        print("A")
+    elif 80 <= num_grade <=87:
+        print("B")
+    elif 67 <= num_grade <=79:
+        print("C")
+    elif 60 <= num_grade <= 66:
+        print("D")
+    elif 0 <= num_grade <= 59:
+        print("F")    
+    num_grade = input("Do you want to continue? Please type Y/N")
+
+
 # # Q6: Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, auther and genre. Loop through the list and print out information about each book.
 # # Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
 
@@ -518,10 +545,4 @@ for i in range(0,3):
         print(book_shelf[i]["title"])
     else:
         continue
-
-
-# In[ ]:
-
-
-
 
