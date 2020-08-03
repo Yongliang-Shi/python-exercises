@@ -2,11 +2,11 @@
 # coding: utf-8
 
 # # 1. Conditional Basics
-# # a. prompt the user for a day of the week, print out whether the day is Monday or not
 
 # In[73]:
 
 
+# a. prompt the user for a day of the week, print out whether the day is Monday or not
 input_day = input("Please type a day of the week: ")
 if input_day.capitalize() == "Monday":
     print("It is Monday")
@@ -71,10 +71,11 @@ else:
 print(week_pay)
 
 
+# # 2. Loop Basics 
+
 # In[24]:
 
 
-# 2. Loop Basics 
 # a. While
     # Create an integer variable i with a value of 5.
     # Create a while loop that runs so long as i is less than or equal to 15
@@ -144,7 +145,7 @@ while i >= 5:
 print(n)
 
 
-# In[17]:
+# In[58]:
 
 
 # i. Write some code that prompts the user for a number, 
@@ -384,7 +385,7 @@ print("4.5".isnumeric())
 int("4")
 
 
-# In[101]:
+# In[55]:
 
 
 # Use TRY EXCEPT for the string input validation
@@ -400,25 +401,26 @@ except ValueError:
 
 # Add LOOP to continue prompting the user if they enter invalid input
 
-# Display a table of squares and cubes using list of lists
+# Calculate the squares and cubes of the input and put them in a list
 
 filed_names = ["number", "squared", "cubed"]
 
-data = [[],[],[]]
+# print(data_list) # valid
 
-for i in range(0,3):
-    data[i].append(i+1)
-    data[i].append((i+1)**2)
-    data[i].append((i+1)**3)
+print("number squared cubed")
+print("-"*20)
 
-data
+for i in range(0,user_input):
+    print('{:<6}'.format(f"{(i+1)}"),'{:<7}'.format(f"{(i+1)**2}"),'{:<7}'.format(f"{(i+1)**3}"))
+    print()
+
 
 # # Q5: Convert given number grades into letter grades
 
-# In[121]:
+# In[ ]:
 
 
-# Prompt the user for a numerical grade from 0 to 100.
+#Prompt the user for a numerical grade from 0 to 100.
 
 num_grade = input("Pleaese enter a numerical grade: ") #valid
 num_grade = int(num_grade)
@@ -444,13 +446,48 @@ if do_it_again == "Y":
     num_grade = input("Pleaese enter a numerical grade: ")
     num_grade = int(num_grade)
 
-# Use LOOP 
+
+# In[57]:
+
+
+# Use the LOOP to make the continuing prompting
+
+num_grade = input("Pleaese enter a numerical grade: ")
+num_grade = int(num_grade)
+
+if 88 <= num_grade <=100:
+    print("A")
+elif 80 <= num_grade <=87:
+    print("B")
+elif 67 <= num_grade <=79:
+    print("C")
+elif 60 <= num_grade <= 66:
+    print("D")
+elif 0 <= num_grade <= 59:
+    print("F")
+    
+do_it_again = input("Do you want to continue? Please type Y/N")
+
+while do_it_again == "Y":
+    num_grade = input("Pleaese enter a numerical grade: ")
+    num_grade = int(num_grade)
+    if 88 <= num_grade <=100:
+        print("A")
+    elif 80 <= num_grade <=87:
+        print("B")
+    elif 67 <= num_grade <=79:
+        print("C")
+    elif 60 <= num_grade <= 66:
+        print("D")
+    elif 0 <= num_grade <= 59:
+        print("F")    
+    do_it_again = input("Do you want to continue? Please type Y/N")
 
 
 # # Q6: Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, auther and genre. Loop through the list and print out information about each book.
 # # Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
 
-# In[120]:
+# In[56]:
 
 
 # create a list of dicts
@@ -481,3 +518,10 @@ for i in range(0,3):
         print(book_shelf[i]["title"])
     else:
         continue
+
+
+# In[ ]:
+
+
+
+
